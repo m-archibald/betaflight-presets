@@ -1,0 +1,73 @@
+#$ TITLE: FR-7 Long Range GPS OSD
+#$ FIRMWARE_VERSION: 2026.6
+#$ CATEGORY: OSD
+#$ STATUS: COMMUNITY
+#$ KEYWORDS: FR-7, FR7, long range, GPS, OSD, cinematic, analog, HD
+#$ AUTHOR: Matthew
+#$ PARSER: MARKED
+#$ DESCRIPTION: Long-range GPS OSD layout optimized for the FR-7 7-inch quad.
+#$ DESCRIPTION: Includes GPS coordinates, home direction and distance, compass bar, variometer, artificial horizon, cell voltage, efficiency (mAh/mi), and flight distance.
+
+# Reset OSD elements before applying new layout
+defaults group_id 501 nosave # PG_OSD_CONFIG
+defaults group_id 2045 nosave # PG_OSD_ELEMENT_CONFIG
+
+# Units & Alarms
+set osd_units = IMPERIAL
+set osd_warn_bitmask = 397311
+set osd_rssi_alarm = 20
+set osd_link_quality_alarm = 80
+set osd_rssi_dbm_alarm = -60
+set osd_rsnr_alarm = 4
+set osd_cap_alarm = 2200
+set osd_alt_alarm = 100
+set osd_core_temp_alarm = 70
+
+# Timers
+set osd_tim1 = 2560
+set osd_tim2 = 2561
+
+# Artificial Horizon
+set osd_ah_max_pit = 20
+set osd_ah_max_rol = 40
+set osd_ah_invert = OFF
+set osd_logo_on_arming = OFF
+
+# Explicitly disable default elements superseded by other fields
+set osd_vbat_pos = 234
+set osd_rssi_pos = 234
+set osd_tim_1_pos = 234
+set osd_throttle_pos = 234
+
+# Active OSD Elements
+set osd_link_quality_pos = 2103
+set osd_rssi_dbm_pos = 2135
+set osd_tim_2_pos = 2081
+set osd_flymode_pos = 2489
+set osd_vtx_channel_pos = 2516
+set osd_crosshairs_pos = 2285
+set osd_ah_sbar_pos = 206
+set osd_ah_pos = 2158
+set osd_current_pos = 2294
+set osd_craft_name_pos = 2329
+set osd_gps_speed_pos = 2113
+set osd_gps_lon_pos = 49512
+set osd_gps_lat_pos = 51649
+set osd_gps_sats_pos = 2465
+set osd_home_dir_pos = 2124
+set osd_home_dist_pos = 2125
+set osd_flight_dist_pos = 2454
+set osd_compass_bar_pos = 2090
+set osd_altitude_pos = 2305
+set osd_warnings_pos = 14697
+set osd_avg_cell_voltage_pos = 2263
+set osd_up_down_reference_pos = 205
+set osd_nvario_pos = 2275
+set osd_camera_frame_pos = 35
+set osd_efficiency_pos = 2241
+
+# Post-Flight Stats & Camera Framing
+set osd_stat_bitmask = 14124
+set osd_camera_frame_width = 24
+set osd_camera_frame_height = 11
+
